@@ -8,7 +8,20 @@ const TEXT = "2C2229";
 const MUTED = "7B6A72";
 const WHITE = "FFFFFF";
 
-const KR = "맑은 고딕";
+/* ── 폰트 구성 ────────────────────────────────────────────────────────────
+   본문 기본: KoPub 2.0 돋움 (KOPUB2.0_TTF_FONTS)
+   제목/강조: 강원교육 서체 5종
+   ※ PowerPoint 글꼴 목록에 표시되는 이름과 아래 문자열이 정확히 일치해야
+     의도한 서체로 표시됩니다. 다르면 이 블록만 수정 후 다시 빌드하세요.        */
+const F = {
+  body:   "KoPubWorld돋움체_Pro Medium", // 본문
+  light:  "KoPubWorld돋움체_Pro Light",  // 보조 설명 · 캡션
+  strong: "KoPubWorld돋움체_Pro Bold",   // 라벨 · 주소 강조
+  title:  "강원교육모두 Bold",            // 슬라이드 제목 · 카드 헤드
+  hand:   "강원교육새음",                 // 손글씨 한마디
+  power:  "강원교육튼튼",                 // 숫자 · 영문 로고 타입
+};
+const KR = F.body;
 
 const sh = (o = {}) =>
   Object.assign({ type: "outer", color: "000000", blur: 14, offset: 4, angle: 90, opacity: 0.18 }, o);
@@ -29,16 +42,16 @@ s1.addImage({
 });
 
 s1.addText("RASHTOGO", {
-  x: 0.9, y: 0.85, w: 5.6, h: 0.35, isTextBox: true, margin: 0,
-  fontFace: "Arial", fontSize: 14, bold: true, color: ROSE, charSpacing: 6,
+  x: 0.9, y: 0.85, w: 5.6, h: 0.38, isTextBox: true, margin: 0,
+  fontFace: F.power, fontSize: 15, color: ROSE, charSpacing: 6,
 });
 s1.addText("래쉬투고", {
   x: 0.9, y: 1.24, w: 5.9, h: 0.85, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 40, bold: true, color: WHITE,
+  fontFace: F.title, fontSize: 40, color: WHITE,
 });
 s1.addText("찾아오시는 길", {
   x: 0.9, y: 2.06, w: 5.9, h: 0.95, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 46, bold: true, color: WHITE,
+  fontFace: F.title, fontSize: 46, color: WHITE,
 });
 
 // 지하철 배지
@@ -48,30 +61,30 @@ s1.addShape(pres.ShapeType.roundRect, {
 });
 s1.addText("지하철 5호선 마곡역 3번 출구 · 도보 1분", {
   x: 0.9, y: 3.18, w: 5.1, h: 0.72, isTextBox: true, align: "center", valign: "middle",
-  fontFace: KR, fontSize: 17, bold: true, color: WHITE,
+  fontFace: F.strong, fontSize: 17, color: WHITE,
 });
 
 // 주소 블록
 s1.addText("ADDRESS", {
   x: 0.9, y: 4.28, w: 5.9, h: 0.3, isTextBox: true, margin: 0,
-  fontFace: "Arial", fontSize: 11, bold: true, color: ROSE, charSpacing: 4,
+  fontFace: F.power, fontSize: 12, color: ROSE, charSpacing: 4,
 });
 s1.addText("서울특별시 강서구 마곡동 773", {
   x: 0.9, y: 4.62, w: 5.9, h: 0.42, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 20, bold: true, color: WHITE,
+  fontFace: F.strong, fontSize: 20, color: WHITE,
 });
 s1.addText("힐스테이트 에코 마곡역  340호", {
   x: 0.9, y: 5.06, w: 5.9, h: 0.42, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 20, bold: true, color: WHITE,
+  fontFace: F.strong, fontSize: 20, color: WHITE,
 });
 s1.addText("상가 / 오피스 엘리베이터 이용 · 3층", {
   x: 0.9, y: 5.56, w: 5.9, h: 0.36, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 15, color: "C9B9C0",
+  fontFace: F.light, fontSize: 15, color: "C9B9C0",
 });
 
 s1.addText("마곡역 3번 출구에서 나와 직진하면 바로 보이는 건물입니다.", {
-  x: 0.9, y: 6.32, w: 5.9, h: 0.4, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 13, italic: true, color: ROSE,
+  x: 0.9, y: 6.28, w: 5.9, h: 0.45, isTextBox: true, margin: 0,
+  fontFace: F.hand, fontSize: 17, color: ROSE,
 });
 s1.addNotes("래쉬투고 찾아오시는 길 안내. 주소: 서울특별시 강서구 마곡동 773 힐스테이트 에코 마곡역 340호. 마곡역 3번 출구 도보 1분.");
 
@@ -81,11 +94,11 @@ s2.background = { color: WHITE };
 
 s2.addText("마곡역에서 오시는 길", {
   x: 0.6, y: 0.55, w: 8.5, h: 0.7, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 36, bold: true, color: TEXT,
+  fontFace: F.title, fontSize: 36, color: TEXT,
 });
 s2.addText("3번 출구 기준 · 도보 1분", {
   x: 0.6, y: 1.22, w: 8.5, h: 0.4, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 15, color: MUTED,
+  fontFace: F.light, fontSize: 15, color: MUTED,
 });
 s2.addShape(pres.ShapeType.roundRect, {
   x: 10.55, y: 0.62, w: 2.18, h: 0.62, rectRadius: 0.3,
@@ -93,7 +106,7 @@ s2.addShape(pres.ShapeType.roundRect, {
 });
 s2.addText("총 3 STEP", {
   x: 10.55, y: 0.62, w: 2.18, h: 0.62, isTextBox: true, align: "center", valign: "middle",
-  fontFace: KR, fontSize: 15, bold: true, color: BERRY,
+  fontFace: F.strong, fontSize: 15, color: BERRY,
 });
 
 const steps = [
@@ -131,15 +144,15 @@ steps.forEach((st, i) => {
   });
   s2.addText(`${i + 1}`, {
     x: x + 0.24, y: CY + 2.45, w: 0.6, h: 0.6, isTextBox: true, align: "center", valign: "middle",
-    fontFace: "Arial", fontSize: 22, bold: true, color: WHITE,
+    fontFace: F.power, fontSize: 24, color: WHITE,
   });
   s2.addText(st.head, {
-    x: x + 0.24, y: CY + 3.2, w: CW - 0.48, h: 0.45, isTextBox: true, margin: 0,
-    fontFace: KR, fontSize: 19, bold: true, color: TEXT,
+    x: x + 0.24, y: CY + 3.18, w: CW - 0.48, h: 0.48, isTextBox: true, margin: 0,
+    fontFace: F.title, fontSize: 20, color: TEXT,
   });
   s2.addText(st.body, {
-    x: x + 0.24, y: CY + 3.7, w: CW - 0.48, h: 0.78, isTextBox: true, margin: 0,
-    fontFace: KR, fontSize: 13, color: MUTED, lineSpacingMultiple: 1.25,
+    x: x + 0.24, y: CY + 3.72, w: CW - 0.48, h: 0.8, isTextBox: true, margin: 0,
+    fontFace: F.body, fontSize: 13, color: MUTED, lineSpacingMultiple: 1.3,
   });
 });
 s2.addNotes("STEP 1 마곡역 3번 출구 → STEP 2 GATE 1 통로 진입 → STEP 3 GATE 4 상가/오피스 엘리베이터 탑승 후 3층.");
@@ -148,13 +161,13 @@ s2.addNotes("STEP 1 마곡역 3번 출구 → STEP 2 GATE 1 통로 진입 → ST
 const s3 = pres.addSlide();
 s3.background = { color: WHITE };
 
-s3.addText("도착 · 3층 340호", {
+s3.addText("3층 340호 도착", {
   x: 0.6, y: 0.55, w: 7.4, h: 0.7, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 36, bold: true, color: TEXT,
+  fontFace: F.title, fontSize: 36, color: TEXT,
 });
 s3.addText("엘리베이터 홀에서 3층 버튼을 눌러 주세요.", {
   x: 0.6, y: 1.22, w: 7.4, h: 0.4, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 15, color: MUTED,
+  fontFace: F.light, fontSize: 15, color: MUTED,
 });
 
 // 큰 호수 콜아웃
@@ -163,18 +176,18 @@ s3.addShape(pres.ShapeType.roundRect, {
   fill: { color: INK }, line: { type: "none" }, shadow: sh({ blur: 16, offset: 4, opacity: 0.25 }),
 });
 s3.addText([
-  { text: "340", options: { fontFace: "Arial", fontSize: 60, bold: true, color: WHITE } },
-  { text: "호", options: { fontFace: KR, fontSize: 30, bold: true, color: ROSE } },
+  { text: "340", options: { fontFace: F.power, fontSize: 62, color: WHITE } },
+  { text: "호", options: { fontFace: F.power, fontSize: 30, color: ROSE } },
 ], {
   x: 0.95, y: 2.08, w: 4.5, h: 1.2, isTextBox: true, margin: 0, valign: "middle",
 });
 s3.addText("힐스테이트 에코 마곡역 상가 3층", {
   x: 0.98, y: 3.28, w: 4.5, h: 0.4, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 14, color: "C9B9C0",
+  fontFace: F.light, fontSize: 14, color: "C9B9C0",
 });
 s3.addText("엘리베이터 하차 후 층 안내판을 확인해 주세요.", {
-  x: 0.6, y: 4.22, w: 5.2, h: 0.35, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 12, color: MUTED,
+  x: 0.6, y: 4.2, w: 5.2, h: 0.4, isTextBox: true, margin: 0,
+  fontFace: F.hand, fontSize: 15, color: MUTED,
 });
 
 // 체크포인트
@@ -194,12 +207,12 @@ checks.forEach(([label, val], i) => {
     fill: { color: BERRY }, line: { type: "none" },
   });
   s3.addText(label, {
-    x: 1.2, y: y, w: 1.7, h: 0.3, isTextBox: true, margin: 0,
-    fontFace: KR, fontSize: 12, bold: true, color: BERRY,
+    x: 1.2, y: y, w: 1.9, h: 0.3, isTextBox: true, margin: 0,
+    fontFace: F.strong, fontSize: 12, color: BERRY,
   });
   s3.addText(val, {
     x: 1.2, y: y + 0.28, w: 4.6, h: 0.34, isTextBox: true, margin: 0,
-    fontFace: KR, fontSize: 14, color: TEXT,
+    fontFace: F.body, fontSize: 14, color: TEXT,
   });
 });
 
@@ -208,16 +221,16 @@ s3.addImage({
   sizing: { type: "cover", w: 3.3, h: 3.3 },
 });
 s3.addText("GATE 1 통로 입구", {
-  x: 6.25, y: 5.34, w: 3.3, h: 0.32, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 12, color: MUTED,
+  x: 6.25, y: 5.32, w: 3.3, h: 0.34, isTextBox: true, margin: 0,
+  fontFace: F.light, fontSize: 12, color: MUTED,
 });
 s3.addImage({
   path: "images/card3.jpg", x: 9.83, y: 1.95, w: 2.9, h: 3.3,
   sizing: { type: "cover", w: 2.9, h: 3.3 },
 });
 s3.addText("GATE 4 엘리베이터 홀", {
-  x: 9.83, y: 5.34, w: 2.9, h: 0.32, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 12, color: MUTED,
+  x: 9.83, y: 5.32, w: 2.9, h: 0.34, isTextBox: true, margin: 0,
+  fontFace: F.light, fontSize: 12, color: MUTED,
 });
 
 s3.addShape(pres.ShapeType.roundRect, {
@@ -226,11 +239,11 @@ s3.addShape(pres.ShapeType.roundRect, {
 });
 s3.addText("서울특별시 강서구 마곡동 773 힐스테이트 에코 마곡역 340호", {
   x: 6.55, y: 6.06, w: 5.9, h: 0.36, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 14, bold: true, color: TEXT,
+  fontFace: F.strong, fontSize: 14, color: TEXT,
 });
 s3.addText("지하철 5호선 마곡역 3번 출구에서 도보 1분", {
   x: 6.55, y: 6.44, w: 5.9, h: 0.36, isTextBox: true, margin: 0,
-  fontFace: KR, fontSize: 13, color: MUTED,
+  fontFace: F.body, fontSize: 13, color: MUTED,
 });
 s3.addNotes("도착 안내: 상가/오피스 엘리베이터로 3층 이동, 340호. 주소 서울특별시 강서구 마곡동 773 힐스테이트 에코 마곡역.");
 
